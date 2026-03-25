@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>서초 빅데이터플랫폼</title>
 <style>
-:root{--navy:#1F3864;--white:#fff;--bg:#f4f6f9;--border:#e2e8f0;--text:#1a1a2e;--sub:#4B5563;--red:#EF4444;--orange:#F97316;--amber:#F59E0B;--green:#22C55E;--blue:#3B82F6;--purple:#A855F7;}
+:root{--navy:#1F3864;--white:#fff;--bg:#f4f6f9;--border:#e2e8f0;--text:#1a1a2e;--sub:#64748b;--red:#EF4444;--orange:#F97316;--amber:#F59E0B;--green:#22C55E;--blue:#3B82F6;--purple:#A855F7;}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{font-family:"Apple SD Gothic Neo","Noto Sans KR","맑은 고딕",sans-serif;background:#d8dee6;display:flex;justify-content:center;min-height:100vh;}
 .frame{width:100%;max-width:390px;min-height:100vh;background:var(--bg);display:flex;flex-direction:column;overflow:hidden;position:relative;}
@@ -148,21 +148,21 @@ body{font-family:"Apple SD Gothic Neo","Noto Sans KR","맑은 고딕",sans-serif
 
 /* ★ 하단 상태 바 (초기화 제거, 시간 추가) */
 .info-bar{
-  background:#EEF3FF;
-  border-top:1px solid rgba(31,56,100,.2);
-  padding:9px 16px;
+  background:var(--white);
+  border-top:.5px solid var(--border);
+  padding:7px 14px;
   display:flex;align-items:center;justify-content:space-between;
-  flex-shrink:0;min-height:44px;
+  flex-shrink:0;min-height:36px;
 }
 .info-sel{display:flex;align-items:center;gap:6px;}
 .info-sel-label{font-size:10px;color:var(--sub);white-space:nowrap;}
 .info-tag{
   display:inline-flex;align-items:center;gap:4px;
-  padding:4px 11px;border-radius:12px;font-size:10px;font-weight:600;
-  background:var(--navy);color:#fff;
-  border:.5px solid var(--navy);white-space:nowrap;
+  padding:3px 9px;border-radius:12px;font-size:10px;font-weight:500;
+  background:#EEF3FF;color:var(--navy);
+  border:.5px solid rgba(31,56,100,.2);white-space:nowrap;
 }
-.info-tag .tdot{width:5px;height:5px;border-radius:50%;background:#fff !important;}
+.info-tag .tdot{width:5px;height:5px;border-radius:50%;}
 .info-time{font-size:10px;color:var(--sub);white-space:nowrap;}
 
 /* ★ 탭바 — 라운드 + 흰색 배경으로 연결 */
@@ -183,93 +183,6 @@ body{font-family:"Apple SD Gothic Neo","Noto Sans KR","맑은 고딕",sans-serif
 .tb.on .tb-icon img{opacity:1;}
 .tb-label{font-size:9px;font-weight:400;color:var(--sub);white-space:nowrap;}
 .tb.on .tb-label{color:var(--navy);font-weight:600;}
-
-/* ── 접근성 모드 토글 버튼 ── */
-.a11y-toggle-wrap{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 20px;background:#f8f9fa;
-  border-top:1px solid var(--border);
-  flex-shrink:0;
-}
-.a11y-toggle-label{font-size:11px;font-weight:600;color:var(--sub);}
-.a11y-toggle-label span{display:block;font-size:10px;font-weight:400;color:#94A3B8;margin-top:1px;}
-.a11y-switch{position:relative;width:44px;height:24px;flex-shrink:0;}
-.a11y-switch input{opacity:0;width:0;height:0;}
-.a11y-slider{
-  position:absolute;inset:0;background:#CBD5E1;border-radius:12px;
-  cursor:pointer;transition:background .2s;
-}
-.a11y-slider::before{
-  content:"";position:absolute;width:18px;height:18px;
-  left:3px;top:3px;background:#fff;border-radius:50%;
-  transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2);
-}
-.a11y-switch input:checked + .a11y-slider{background:var(--navy);}
-.a11y-switch input:checked + .a11y-slider::before{transform:translateX(20px);}
-
-/* ── 고령자 모드 (body.a11y 클래스) ── */
-
-/* 폰트 크기 전체 상향 */
-body.a11y{font-size:16px;}
-body.a11y .fc{font-size:13px;padding:8px 14px;}
-body.a11y .float-bar{top:12px;}
-body.a11y .tooltip-drop{top:58px;}
-body.a11y .marker-layer{top:60px;}
-
-/* 탭바 크게 */
-body.a11y .tabbar{padding:8px 4px calc(8px + env(safe-area-inset-bottom)) 4px;}
-body.a11y .tb-icon{width:44px;height:44px;}
-body.a11y .tb-icon img{width:26px;height:26px;}
-body.a11y .tb-label{font-size:11px;}
-
-/* 하단 info-bar */
-body.a11y .info-bar{min-height:44px;padding:9px 16px;}
-body.a11y .info-sel-label{font-size:12px;}
-body.a11y .info-tag{font-size:12px;padding:4px 11px;}
-body.a11y .info-time{font-size:11px;}
-
-/* 드롭다운 */
-body.a11y .td-2dep{padding:13px 16px 12px;}
-body.a11y .td-2dep-name{font-size:14px;}
-body.a11y .td-3item{padding:12px 18px 12px 26px;}
-body.a11y .td-3item-name{font-size:13px;}
-body.a11y .td-3item-radio{width:20px;height:20px;}
-body.a11y .td-3item-radio.on::after{width:8px;height:8px;}
-body.a11y .d3{font-size:13px;padding:7px 14px;}
-
-/* 선택 요약 바 */
-body.a11y .sel-label{font-size:12px;}
-body.a11y .sel-tag{font-size:12px;padding:5px 11px;}
-
-/* 사이드 메뉴 */
-body.a11y .sm-1dep-name{font-size:16px;}
-body.a11y .sm-1dep-hd{padding:18px 20px;}
-body.a11y .sm-2dep-item{font-size:15px;padding:14px 20px 14px 28px;}
-body.a11y .sm-plain{font-size:16px;padding:18px 20px;}
-body.a11y .banner-title{font-size:16px;}
-body.a11y .banner-desc{font-size:13px;line-height:1.7;}
-body.a11y .banner-tag{font-size:12px;padding:4px 10px;}
-body.a11y .banner-chip{font-size:12px;padding:6px 12px;}
-
-/* 헤더 */
-body.a11y .hdr{height:64px;}
-body.a11y .hdr-logo img{height:24px;}
-body.a11y .hamburger span{width:24px;}
-
-/* 줌 버튼 */
-body.a11y .zoom-btn{width:40px;height:40px;font-size:22px;}
-
-/* 고령자 모드 배지 */
-
-/* 색상 대비 강화 */
-
-
-body.a11y .sel-empty{font-size:12px;color:#4B5563;}
-
-/* 데이터 강조 카드 (고령자 모드 전용) */
-
-
-
 </style>
 </head>
 <body>
@@ -444,19 +357,6 @@ body.a11y .sel-empty{font-size:12px;color:#4B5563;}
       </div>
     </div>
   </div>
-
-  <!-- ★ 접근성 토글 — 사이드 최하단 -->
-  <div class="a11y-toggle-wrap">
-    <div class="a11y-toggle-label">
-      고령자·정보취약계층 모드
-      <span>글씨 크기 · 터치 영역 확대</span>
-    </div>
-    <label class="a11y-switch">
-      <input type="checkbox" id="a11y-chk" onchange="toggleA11y(this.checked)">
-      <span class="a11y-slider"></span>
-    </label>
-  </div>
-
 </div>
 
 <!-- 콘텐츠 -->
@@ -913,23 +813,6 @@ renderMapFloatBar();renderMapSelBar();
       lastTap=now;
     });
   });
-})();
-
-
-/* ── 접근성 모드 토글 ── */
-function toggleA11y(on){
-  document.body.classList.toggle('a11y', on);
-  // 상태 저장 (세션)
-  sessionStorage.setItem('a11y', on ? '1' : '0');
-
-}
-// 초기 상태 복원
-(function(){
-  if(sessionStorage.getItem('a11y')==='1'){
-    document.body.classList.add('a11y');
-    const chk=document.getElementById('a11y-chk');
-    if(chk) chk.checked=true;
-  }
 })();
 
 </script>
