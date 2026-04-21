@@ -762,7 +762,7 @@ renderMapFloatBar();renderMapSelBar();
     else                 layers = [...wrap.querySelectorAll('.map-bg-img,.map-seocho-svg')];
     let scale=1,tx=0,ty=0,lastScale=1,lastTx=0,lastTy=0;
     let mode=null,startDist=0,startMidX=0,startMidY=0,dragStartX=0,dragStartY=0;
-    const MIN=0.5,MAX=4;
+    const MIN=1.0,MAX=3.0;
     function applyT(){
       const r=wrap.getBoundingClientRect();
       const mx=r.width*(scale-1)/2,my=r.height*(scale-1)/2;
@@ -908,7 +908,7 @@ document.addEventListener('DOMContentLoaded', function(){
   document.getElementById('map-zoom-in')?.addEventListener('click', function(){
     const layers = [...wrap.querySelectorAll('.map-bg-img,.map-seocho-svg')];
     let s = (window._mapCurrentScale||1)*1.4;
-    s = Math.min(s, 4);
+    s = Math.min(s, 3.0);
     window._mapCurrentScale = s;
     const tx = window._mapCurrentTx||0, ty = window._mapCurrentTy||0;
     const t = `translate(${tx}px,${ty}px) scale(${s})`;
