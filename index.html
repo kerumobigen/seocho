@@ -1031,7 +1031,7 @@ renderMapFloatBar();renderMapSelBar();
     function mid(t){return{x:(t[0].clientX+t[1].clientX)/2,y:(t[0].clientY+t[1].clientY)/2};}
     let wasPinch=false;
     wrap.addEventListener('touchstart',e=>{
-      if(e.target.closest('.float-bar,.tooltip-drop,.zoom-btns,.marker-layer,.biz-bubble'))return;
+      if(e.target.closest('.float-bar,.tooltip-drop,.zoom-btns,.marker-layer,.biz-bubble,.biz-period-btn,.biz-period-drop,.biz-period-item,.biz-float-bar,.biz-detail-panel,.drag-scroll'))return;
       if(e.touches.length===1){mode='drag';dragStartX=e.touches[0].clientX-tx;dragStartY=e.touches[0].clientY-ty;}
       else if(e.touches.length===2){mode='pinch';wasPinch=true;startDist=dist(e.touches);lastScale=scale;const m=mid(e.touches);startMidX=m.x;startMidY=m.y;lastTx=tx;lastTy=ty;}
       e.preventDefault();
